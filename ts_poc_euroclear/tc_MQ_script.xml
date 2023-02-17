@@ -14,38 +14,30 @@
   <con:testStep type="groovy" name="putMessage" id="38e02056-01b5-44c8-8fff-9eb02da6e701">
     <con:settings/>
     <con:config>
-      <script>Connection connection = null;
-Session session = null;
-Destination destination = null;
-Destination tempDestination = null;
-MessageProducer producer = null;
-MessageConsumer consumer = null;
+      <script>import com.ibm.msg.client.wmq.*;
+import com.ibm.mq.jms.*;
+import javax.jms.*;
 
-try {
+MQQueueConnectionFactory qcf = new MQQueueConnectionFactory();
 
-  JmsFactoryFactory ff = JmsFactoryFactory.getInstance(WMQConstants.WMQ_PROVIDER);
-  JmsConnectionFactory cf = ff.createConnectionFactory();
+qcf.setHostName ("localhost");
+qcf.setPort (1414);
+qcf.setQueueManager ("QM1");
+qcf.setChannel ("DEV.APP.SVRCONN");
+qcf .setTransportType (WMQConstants.WMQ_CM_CLIENT);
 
-  cf.setStringProperty(WMQConstants.WMQ_HOST_NAME, "localhost"); 
-  cf.setIntProperty(WMQConstants.WMQ_PORT, 1414);
-  cf.setStringProperty(WMQConstants.WMQ_CHANNEL, "DEV.APP.SVRCONN");
-  cf.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
-  cf.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, "QM1");
+QueueConnection qc = qcf.createQueueConnection ("app","passw0rd"); 
+qc.start();
 
-  connection = cf.createConnection("app", "passw0rd");
-  session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-  destination = session.createQueue("queue:///Q1");
-  producer = session.createProducer(destination);
+Queue q = new MQQueue ("DEV.QUEUE.1");
+QueueSession s = qc.createQueueSession (false, Session.AUTO_ACKNOWLEDGE);
+QueueSender qs = s.createSender (q);
 
-  long uniqueNumber = System.currentTimeMillis() % 1000;
-  TextMessage message = session.createTextMessage("SimpleRequestor: Your lucky number yesterday was " + uniqueNumber);
-  connection.start();
-  producer.send(message);
+Message m = s.createTextMessage ("Your message text");
+qs.send (m);
 
-  }catch (JMSException jmsex) {
- log.info(jmsex);
-}
-}</script>
+QueueReceiver qr = s.createReceiver(q);
+log.info(qr.receive())</script>
     </con:config>
   </con:testStep>
   <con:properties/>

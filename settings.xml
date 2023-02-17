@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="f42d9446-6b2a-4a71-bef3-fbceb9655f1b" created="3.43.1" activeEnvironment="Default environment" name="Project 1" projectVersion="" updated="3.43.1" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+  <con:settings>
+    <con:setting id="f42d9446-6b2a-4a71-bef3-fbceb9655f1bfileName">poc_readyAPI</con:setting>
+  </con:settings>
   <con:requirements/>
   <con:properties/>
   <con:wssContainer/>
