@@ -64,13 +64,14 @@ qs.send (m);
 QueueReceiver qr = s.createReceiver(q);
 Message receivedMessage = qr.receive();
 log.info(receivedMessage.getText())
-assert receivedMessage.getText() = testRunner.testCase.getPropertyValue("randomNumber")</script>
+log.info("Published message has been successfully read again.")
+assert receivedMessage.getText() == testRunner.testCase.getPropertyValue("randomNumber")</script>
     </con:config>
   </con:testStep>
   <con:properties>
     <con:property>
       <con:name>randomNumber</con:name>
-      <con:value>783019435333175605524523616966058967040</con:value>
+      <con:value>127707336618979174017629911086897561600</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

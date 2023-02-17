@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="65218174-8070-47a7-ad85-bf499ab006fb" name="castleMock_local" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings>
+    <con:setting id="65218174-8070-47a7-ad85-bf499ab006fbfileName">castleMock_local</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="castleMock_local.json">
+    <con:part>
+      <con:url>castleMock_local.json</con:url>
+      <con:content>{"openapi":"3.0.1","info":{"title":"castleMock_local","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/getMethod":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>localhost:8080</con:endpoint>
+  </con:endpoints>
+</con:interface>

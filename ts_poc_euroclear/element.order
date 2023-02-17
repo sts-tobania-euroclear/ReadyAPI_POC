@@ -5,3 +5,4 @@ TC_LinuxServerConnection.xml
 tc_SFTP.xml
 TC_DataSource.xml
 tc_MQ_script.xml
+tc_SOAP.xml
