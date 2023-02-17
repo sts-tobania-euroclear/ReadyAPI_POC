@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="f42d9446-6b2a-4a71-bef3-fbceb9655f1b" created="3.43.1" activeEnvironment="Default environment" name="poc_ec" projectVersion="" updated="3.43.1" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="f42d9446-6b2a-4a71-bef3-fbceb9655f1b" created="3.43.1" activeEnvironment="Default environment" name="Project 1" projectVersion="" updated="3.43.1" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:properties/>
   <con:wssContainer/>
-  <con:databaseConnectionContainer/>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>local_db</con:name>
+      <con:driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</con:driver>
+      <con:connectionString>jdbc:sqlserver://127.0.0.1:1433;databaseName=TestDB;user=SA;password=PASS_VALUE</con:connectionString>
+      <con:password>Passw0rd123</con:password>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>

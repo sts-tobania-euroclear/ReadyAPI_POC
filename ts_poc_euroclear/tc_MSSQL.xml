@@ -3,6 +3,90 @@
   <con:settings>
     <con:setting id="9c148d8b-b89e-4a91-8074-67144d6dc253fileName">tc_MSSQL</con:setting>
   </con:settings>
-  <con:properties/>
+  <con:testStep type="datagen" name="DataGen" id="23b0db3c-7d60-43bc-80c6-4c7941182ee2">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Number">
+        <con:configuration>
+          <start>0</start>
+          <end>99999999</end>
+          <step>1</step>
+          <pattern/>
+          <random>true</random>
+          <persist>false</persist>
+        </con:configuration>
+        <con:name>quantity</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="434f3e9b-4398-49f6-b630-9c4792e0c4d0">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>quantity</con:name>
+        <con:sourceType>quantity</con:sourceType>
+        <con:sourceStep>DataGen</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>quantity</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="jdbc" name="putData" id="263d8de9-ded4-44cc-8521-6d6c95325e09">
+    <con:settings>
+      <con:setting id="prettyPrintResponse">true</con:setting>
+    </con:settings>
+    <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dbConnectionName>local_db</con:dbConnectionName>
+      <con:driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</con:driver>
+      <con:connectionString>jdbc:sqlserver://127.0.0.1:1433;databaseName=TestDB;user=SA;password=PASS_VALUE</con:connectionString>
+      <con:password>Passw0rd123</con:password>
+      <con:connectionProperties/>
+      <con:query>INSERT INTO Items (name, quantity)
+VALUES ('Banana', :recordQuantity)</con:query>
+      <con:properties>
+        <con:property>
+          <con:name>recordQuantity</con:name>
+          <con:value>${#TestCase#quantity}</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="jdbc" name="getData" id="4faab457-bb20-485a-85d1-0c60ad026834">
+    <con:settings>
+      <con:setting id="prettyPrintResponse">true</con:setting>
+    </con:settings>
+    <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dbConnectionName>local_db</con:dbConnectionName>
+      <con:driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</con:driver>
+      <con:connectionString>jdbc:sqlserver://127.0.0.1:1433;databaseName=TestDB;user=SA;password=PASS_VALUE</con:connectionString>
+      <con:password>Passw0rd123</con:password>
+      <con:connectionProperties/>
+      <con:query>SELECT * FROM Items</con:query>
+      <con:properties/>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="getFromDBTransfer" id="6ae8e956-e6aa-4918-8ca5-9fe8b5b9f878">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>transfer</con:name>
+        <con:sourceStep>getData</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>quantity</con:name>
+      <con:value>91015234</con:value>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
 </con:testCase>
