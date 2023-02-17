@@ -1,6 +1,8 @@
 # ec_readyapi_poc
 ## Getting started:
-Running docker-compose up -d will spin up all necessary containers for this POC to run locally.
+Download the file docker-compose.yml. Running the following command within the folder the file is in will spin up all necessary containers for this POC to run locally.
+
+````docker-compose up -d ````
 
 ##### MS SQL setup
 In the container bash interface, enter the following commands line by line: 
