@@ -5,11 +5,36 @@
   </con:settings>
   <con:testStep type="datagen" name="DataGen" id="8a504b8e-e5e0-481f-aac0-3184ed09d28d">
     <con:settings/>
-    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Number">
+        <con:configuration>
+          <start/>
+          <end/>
+          <step/>
+          <pattern/>
+          <random>true</random>
+          <persist>false</persist>
+        </con:configuration>
+        <con:name>randomNumber</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
   </con:testStep>
   <con:testStep type="transfer" name="Property Transfer" id="8d6f9fa2-92f8-4731-a74f-2713120bc31c">
     <con:settings/>
-    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>randomNumber</con:name>
+        <con:sourceType>randomNumber</con:sourceType>
+        <con:sourceStep>DataGen</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>randomNumber</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
   </con:testStep>
   <con:testStep type="groovy" name="putMessage" id="38e02056-01b5-44c8-8fff-9eb02da6e701">
     <con:settings/>
@@ -33,13 +58,20 @@ Queue q = new MQQueue ("DEV.QUEUE.1");
 QueueSession s = qc.createQueueSession (false, Session.AUTO_ACKNOWLEDGE);
 QueueSender qs = s.createSender (q);
 
-Message m = s.createTextMessage ("Your message text");
+Message m = s.createTextMessage (testRunner.testCase.getPropertyValue("randomNumber"));
 qs.send (m);
 
 QueueReceiver qr = s.createReceiver(q);
-log.info(qr.receive())</script>
+Message receivedMessage = qr.receive();
+log.info(receivedMessage.getText())
+assert receivedMessage.getText() = testRunner.testCase.getPropertyValue("randomNumber")</script>
     </con:config>
   </con:testStep>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>randomNumber</con:name>
+      <con:value>783019435333175605524523616966058967040</con:value>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
 </con:testCase>
