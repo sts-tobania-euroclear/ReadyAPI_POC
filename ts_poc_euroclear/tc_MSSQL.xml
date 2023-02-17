@@ -48,6 +48,7 @@
       <con:connectionProperties/>
       <con:query>INSERT INTO Items (name, quantity)
 VALUES ('Banana', :recordQuantity)</con:query>
+      <con:assertion type="JDBC Status" id="722a3d0a-a7e2-456a-b261-2ff0db87bf27" name="JDBC Status"/>
       <con:properties>
         <con:property>
           <con:name>recordQuantity</con:name>
@@ -66,26 +67,75 @@ VALUES ('Banana', :recordQuantity)</con:query>
       <con:connectionString>jdbc:sqlserver://127.0.0.1:1433;databaseName=TestDB;user=SA;password=PASS_VALUE</con:connectionString>
       <con:password>Passw0rd123</con:password>
       <con:connectionProperties/>
-      <con:query>SELECT * FROM Items</con:query>
+      <con:query>SELECT TOP 1 * FROM Items 
+ORDER BY Items.id DESC</con:query>
+      <con:assertion type="DataAndMetadataAssertion" id="0a6da89a-143a-4e2d-88aa-699cb4a3bb9d" name="Smart Assertion">
+        <con:configuration xsi:type="con:DataAndMetadataAssertion">
+          <con:mode>Received Data</con:mode>
+          <con:elements>
+            <con:path>//Results[1]/ResultSet[1]/@fetchSize</con:path>
+            <con:element>@fetchSize</con:element>
+            <con:operatorId>1</con:operatorId>
+            <con:enabled>false</con:enabled>
+            <con:expectedValue>128</con:expectedValue>
+            <con:caseSensitive>true</con:caseSensitive>
+            <con:numberType>false</con:numberType>
+          </con:elements>
+          <con:elements>
+            <con:path>//Results[1]/ResultSet[1]/Row[1]/@rowNumber</con:path>
+            <con:element>@rowNumber</con:element>
+            <con:operatorId>1</con:operatorId>
+            <con:enabled>false</con:enabled>
+            <con:expectedValue>1</con:expectedValue>
+            <con:caseSensitive>true</con:caseSensitive>
+            <con:numberType>false</con:numberType>
+          </con:elements>
+          <con:elements>
+            <con:path>//Results[1]/ResultSet[1]/Row[1]/ID[1]</con:path>
+            <con:element>ID</con:element>
+            <con:operatorId>1</con:operatorId>
+            <con:enabled>false</con:enabled>
+            <con:expectedValue>9</con:expectedValue>
+            <con:caseSensitive>true</con:caseSensitive>
+            <con:numberType>false</con:numberType>
+          </con:elements>
+          <con:elements>
+            <con:path>//Results[1]/ResultSet[1]/Row[1]/NAME[1]</con:path>
+            <con:element>NAME</con:element>
+            <con:operatorId>1</con:operatorId>
+            <con:enabled>false</con:enabled>
+            <con:expectedValue>Banana</con:expectedValue>
+            <con:caseSensitive>true</con:caseSensitive>
+            <con:numberType>false</con:numberType>
+          </con:elements>
+          <con:elements>
+            <con:path>//Results[1]/ResultSet[1]/Row[1]/QUANTITY[1]</con:path>
+            <con:element>QUANTITY</con:element>
+            <con:operatorId>1</con:operatorId>
+            <con:enabled>true</con:enabled>
+            <con:expectedValue>${#TestCase#quantity}</con:expectedValue>
+            <con:caseSensitive>true</con:caseSensitive>
+            <con:numberType>false</con:numberType>
+          </con:elements>
+          <con:originalMessage><![CDATA[<Results>
+   <ResultSet fetchSize="128">
+      <Row rowNumber="1">
+         <ID>9</ID>
+         <NAME>Banana</NAME>
+         <QUANTITY>70605493</QUANTITY>
+      </Row>
+   </ResultSet>
+</Results>]]></con:originalMessage>
+        </con:configuration>
+      </con:assertion>
+      <con:assertion type="JDBC Status" id="cf38dbc3-1a4e-45ed-aa71-a44a3d95a122" name="JDBC Status"/>
       <con:properties/>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="transfer" name="getFromDBTransfer" id="6ae8e956-e6aa-4918-8ca5-9fe8b5b9f878">
-    <con:settings/>
-    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
-        <con:name>transfer</con:name>
-        <con:sourceStep>getData</con:sourceStep>
-        <con:sourcePath/>
-        <con:targetPath/>
-        <con:upgraded>true</con:upgraded>
-      </con:transfers>
     </con:config>
   </con:testStep>
   <con:properties>
     <con:property>
       <con:name>quantity</con:name>
-      <con:value>91015234</con:value>
+      <con:value>68692637</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
