@@ -135,7 +135,7 @@ ORDER BY Items.id DESC</con:query>
   <con:properties>
     <con:property>
       <con:name>quantity</con:name>
-      <con:value>68692637</con:value>
+      <con:value>65543147</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

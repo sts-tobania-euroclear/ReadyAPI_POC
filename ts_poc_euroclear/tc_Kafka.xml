@@ -3,7 +3,68 @@
   <con:settings>
     <con:setting id="0d7390bb-ae95-4003-8eff-198470d443f2fileName">tc_Kafka</con:setting>
   </con:settings>
-  <con:testStep type="multiConfigureTestStep" name="API Connection" id="625dfa4b-b40b-4893-baae-81547a0ff21a">
+  <con:testStep type="datagen" name="DataGen" id="f81c50ed-70c5-408c-88f1-2a49cf0e15b0">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Number">
+        <con:configuration>
+          <start>0</start>
+          <end>999999999</end>
+          <step/>
+          <pattern/>
+          <random>true</random>
+          <persist>false</persist>
+        </con:configuration>
+        <con:name>number</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="d78b0093-c24c-40f4-b80c-90727c1411d9">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>randomNumber</con:name>
+        <con:sourceType>number</con:sourceType>
+        <con:sourceStep>DataGen</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>randomValue</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="multiConfigureTestStep" name="publish" id="f4152ef0-50e7-4aa6-9da2-339ff5120197">
+    <con:settings/>
+    <con:config activeStep="kafkaPublishTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:kafkaPublishStep>
+        <con:operationId>15ae1106-1923-4a3b-98d0-5b79ece3eac4</con:operationId>
+        <con:operationName>Publish</con:operationName>
+        <con:channelName>inctopic</con:channelName>
+        <con:serviceName>kafka_local</con:serviceName>
+        <con:endpoint>localhost:29092</con:endpoint>
+        <con:connectionProperties/>
+        <con:schemaRegistry/>
+        <con:messageType>JSON</con:messageType>
+        <con:message>${#TestCase#randomValue}</con:message>
+        <con:parameters>
+          <con:parameter>
+            <con:name>value</con:name>
+            <con:value>${#TestCase#randomValue}</con:value>
+            <con:type>Header</con:type>
+          </con:parameter>
+          <con:parameter>
+            <con:name>Key</con:name>
+            <con:value>${#TestCase#randomValue}</con:value>
+            <con:type>Kafka</con:type>
+          </con:parameter>
+        </con:parameters>
+      </con:kafkaPublishStep>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="multiConfigureTestStep" name="subscribe" id="625dfa4b-b40b-4893-baae-81547a0ff21a">
     <con:settings/>
     <con:config activeStep="kafkaSubscribeTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:kafkaSubscribeStep>
@@ -16,13 +77,53 @@
         <con:schemaRegistry/>
         <con:messageType>JSON</con:messageType>
         <con:closeConditionType>ANY_CONDITION</con:closeConditionType>
-        <con:maxIdleTime>60</con:maxIdleTime>
-        <con:maxMessagesReceived>50</con:maxMessagesReceived>
-        <con:maxRunTime>60</con:maxRunTime>
+        <con:maxIdleTime>10</con:maxIdleTime>
+        <con:maxMessagesReceived>1</con:maxMessagesReceived>
+        <con:maxRunTime>5</con:maxRunTime>
+        <con:assertion type="DataAndMetadataAssertion" id="6aeaf4b0-b744-4f45-a4ff-d00de5088bc4" name="Smart Assertion">
+          <con:configuration xsi:type="con:DataAndMetadataAssertion">
+            <con:mode>Received Metadata</con:mode>
+            <con:elements>
+              <con:path>$['Headers']['value']</con:path>
+              <con:element>value</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>${#TestCase#randomValue}</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Kafka']['Key']</con:path>
+              <con:element>Key</con:element>
+              <con:operatorId>9</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue xsi:nil="true"/>
+              <con:numberType>false</con:numberType>
+              <con:expectedDataType>1</con:expectedDataType>
+            </con:elements>
+            <con:elements>
+              <con:path>$['Kafka']['Partition']</con:path>
+              <con:element>Partition</con:element>
+              <con:operatorId>1</con:operatorId>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>0</con:expectedValue>
+              <con:caseSensitive>true</con:caseSensitive>
+              <con:numberType>true</con:numberType>
+              <con:expectedDataType>2</con:expectedDataType>
+            </con:elements>
+            <con:originalMessage>{"Headers":{"value":"kafkaValue"},"Kafka":{"Key":"","Partition":0}}</con:originalMessage>
+          </con:configuration>
+        </con:assertion>
         <con:ignoreMessagesBeforeConnect>false</con:ignoreMessagesBeforeConnect>
       </con:kafkaSubscribeStep>
     </con:config>
   </con:testStep>
-  <con:properties/>
+  <con:properties>
+    <con:property>
+      <con:name>randomValue</con:name>
+      <con:value>395163510</con:value>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
 </con:testCase>
