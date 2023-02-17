@@ -1,7 +1,9 @@
 kafka_local\inctopic.xml
+mq_endpoint\.xml
 ts_poc_euroclear\tc_Kafka.xml
 ts_poc_euroclear\tc_MSSQL.xml
-ts_poc_euroclear\tc_MQ.xml
+ts_poc_euroclear\tc_MQ_JNDI.xml
 ts_poc_euroclear\TC_LinuxServerConnection.xml
 ts_poc_euroclear\tc_SFTP.xml
 ts_poc_euroclear\TC_DataSource.xml
+ts_poc_euroclear\tc_MQ_script.xml

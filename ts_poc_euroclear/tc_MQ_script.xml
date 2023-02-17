@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="cf3e0b4c-e894-4b34-9b4b-c9ba8d665f65" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_MQ_script" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="cf3e0b4c-e894-4b34-9b4b-c9ba8d665f65fileName">tc_MQ_script</con:setting>
+  </con:settings>
+  <con:testStep type="datagen" name="DataGen" id="8a504b8e-e5e0-481f-aac0-3184ed09d28d">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="transfer" name="Property Transfer" id="8d6f9fa2-92f8-4731-a74f-2713120bc31c">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

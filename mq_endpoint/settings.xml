@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="f1f0383d-8e9c-47f9-86dc-d068f84a8ccf" name="mq_endpoint" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings>
+    <con:setting id="f1f0383d-8e9c-47f9-86dc-d068f84a8ccffileName">mq_endpoint</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="mq_endpoint.json">
+    <con:part>
+      <con:url>mq_endpoint.json</con:url>
+      <con:content>{"openapi":"3.0.1","info":{"title":"mq_endpoint","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>
+      <con:type>https://swagger.io/openapiv3/specification</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>localhost</con:endpoint>
+  </con:endpoints>
+</con:interface>
