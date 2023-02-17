@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="0d7390bb-ae95-4003-8eff-198470d443f2" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_Kafka" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0d7390bb-ae95-4003-8eff-198470d443f2fileName">tc_Kafka</con:setting>
+  </con:settings>
+  <con:testStep type="multiConfigureTestStep" name="API Connection" id="625dfa4b-b40b-4893-baae-81547a0ff21a">
+    <con:settings/>
+    <con:config activeStep="kafkaSubscribeTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:kafkaSubscribeStep>
+        <con:operationId>56a258e3-ddec-4c5c-ae60-b48a2862ec1c</con:operationId>
+        <con:operationName>Subscribe</con:operationName>
+        <con:channelName>inctopic</con:channelName>
+        <con:serviceName>kafka_local</con:serviceName>
+        <con:endpoint>localhost:29092</con:endpoint>
+        <con:connectionProperties/>
+        <con:schemaRegistry/>
+        <con:messageType>JSON</con:messageType>
+        <con:closeConditionType>ANY_CONDITION</con:closeConditionType>
+        <con:maxIdleTime>60</con:maxIdleTime>
+        <con:maxMessagesReceived>50</con:maxMessagesReceived>
+        <con:maxRunTime>60</con:maxRunTime>
+        <con:ignoreMessagesBeforeConnect>false</con:ignoreMessagesBeforeConnect>
+      </con:kafkaSubscribeStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

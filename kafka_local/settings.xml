@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:MessageDrivenService" id="b212f97f-17c0-4b32-bd96-cb82dde35973" name="kafka_local" type="messagedrivenservice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b212f97f-17c0-4b32-bd96-cb82dde35973fileName">kafka_local</con:setting>
+  </con:settings>
+  <con:definitionCache/>
+  <con:endpoints>
+    <con:endpoint>localhost:29092</con:endpoint>
+  </con:endpoints>
+</con:interface>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:channel name="inctopic" id="0eccd91a-d7d0-4b68-b9a3-cf9654635b91" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0eccd91a-d7d0-4b68-b9a3-cf9654635b91fileName">inctopic</con:setting>
+  </con:settings>
+  <con:subscribeOperation name="Subscribe" id="56a258e3-ddec-4c5c-ae60-b48a2862ec1c">
+    <con:settings/>
+  </con:subscribeOperation>
+  <con:publishOperation name="Publish" id="15ae1106-1923-4a3b-98d0-5b79ece3eac4">
+    <con:settings/>
+  </con:publishOperation>
+</con:channel>

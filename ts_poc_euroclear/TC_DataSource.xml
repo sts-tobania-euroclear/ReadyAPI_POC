@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="8a540deb-c193-4674-bb43-07b9d98ca6ba" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TC_DataSource" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8a540deb-c193-4674-bb43-07b9d98ca6bafileName">TC_DataSource</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

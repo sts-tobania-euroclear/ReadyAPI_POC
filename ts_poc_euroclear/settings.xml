@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="32bf28f7-5036-48ff-9190-3b82fe708652" name="ts_poc_euroclear" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="32bf28f7-5036-48ff-9190-3b82fe708652fileName">ts_poc_euroclear</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testSuite>

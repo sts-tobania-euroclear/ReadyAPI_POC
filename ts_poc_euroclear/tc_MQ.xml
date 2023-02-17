@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="57151833-f739-4a0f-88f7-d4d11c90c444" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_MQ" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="57151833-f739-4a0f-88f7-d4d11c90c444fileName">tc_MQ</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
