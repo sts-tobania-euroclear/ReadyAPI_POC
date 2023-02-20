@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="" path="getMethod" id="beb134eb-d99d-407e-b598-bbf5a05e172a" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="" path="getMethod" id="beb134eb-d99d-407e-b598-bbf5a05e172a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="beb134eb-d99d-407e-b598-bbf5a05e172afileName">getMethod</con:setting>
   </con:settings>
@@ -12,6 +12,7 @@
       <con:endpoint>localhost:8080</con:endpoint>
       <con:request/>
       <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
@@ -29,6 +30,7 @@
       <con:request/>
       <con:originalUri>http://localhost/castlemock/mock/rest/project/2yHuDa/application/uGEXWF/rest</con:originalUri>
       <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
         <con:authType>No Authorization</con:authType>
       </con:credentials>
       <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
