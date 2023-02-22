@@ -10,3 +10,4 @@ ts_poc_euroclear\tc_SFTP.xml
 ts_poc_euroclear\TC_DataSource.xml
 ts_poc_euroclear\tc_MQ_script.xml
 ts_poc_euroclear\tc_SOAP.xml
+ts_poc_euroclear\tc_MongoDB.xml

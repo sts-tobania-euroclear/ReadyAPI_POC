@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fde93cc1-2fbc-460b-8a12-907c3b5b8d29" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_MongoDB" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fde93cc1-2fbc-460b-8a12-907c3b5b8d29fileName">tc_MongoDB</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="writeToDB" id="dd7ed5e2-a541-4d22-a152-5f72e0bd46bf">
+    <con:settings/>
+    <con:config>
+      <script>import helper.MongoDBConnector
+import org.bson.Document;
+
+
+MongoDBConnector connector = new MongoDBConnector();
+connector.connectToDatabase("mongodb://root:example@localhost:27017/", "databasePOC");
+
+
+for(Document doc : connector.getDocumentFromCollection("collectionPOC")) {
+    log.info(doc);
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:setupScript/>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
