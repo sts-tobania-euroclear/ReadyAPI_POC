@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:interface xsi:type="con:WsdlInterface" id="e2c0df94-4310-433a-a6c4-9cd0bbaa0985" wsaVersion="NONE" name="Hello_Binding" type="wsdl" bindingName="{http://www.examples.com/wsdl/HelloService.wsdl}Hello_Binding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/castlemock/mock/soap/project/zi4eHk/Hello_Port?wsdl" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<con:interface xsi:type="con:WsdlInterface" anonymous="optional" bindingName="{http://www.examples.com/wsdl/HelloService.wsdl}Hello_Binding" definition="http://localhost:8080/castlemock/mock/soap/project/zi4eHk/Hello_Port?wsdl" id="e2c0df94-4310-433a-a6c4-9cd0bbaa0985" name="Hello_Binding" soapVersion="1_1" type="wsdl" wsaVersion="NONE" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <con:settings>
     <con:setting id="e2c0df94-4310-433a-a6c4-9cd0bbaa0985fileName">Hello_Binding</con:setting>
   </con:settings>
-  <con:definitionCache type="TEXT" rootPart="http://localhost:8080/castlemock/mock/soap/project/zi4eHk/Hello_Port?wsdl">
+  <con:definitionCache rootPart="http://localhost:8080/castlemock/mock/soap/project/zi4eHk/Hello_Port?wsdl" type="TEXT">
     <con:part>
       <con:url>http://localhost:8080/castlemock/mock/soap/project/zi4eHk/Hello_Port?wsdl</con:url>
       <con:content><![CDATA[<definitions name="HelloService" targetNamespace="http://www.examples.com/wsdl/HelloService.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.examples.com/wsdl/HelloService.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">

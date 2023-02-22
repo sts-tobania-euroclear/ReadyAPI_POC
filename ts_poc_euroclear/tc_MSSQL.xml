@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="9c148d8b-b89e-4a91-8074-67144d6dc253" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_MSSQL" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="9c148d8b-b89e-4a91-8074-67144d6dc253" keepSession="false" name="tc_MSSQL" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="9c148d8b-b89e-4a91-8074-67144d6dc253fileName">tc_MSSQL</con:setting>
   </con:settings>
-  <con:testStep type="datagen" name="DataGen" id="23b0db3c-7d60-43bc-80c6-4c7941182ee2">
+  <con:testStep id="23b0db3c-7d60-43bc-80c6-4c7941182ee2" name="DataGen" type="datagen">
     <con:settings/>
     <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:property type="Number">
@@ -21,10 +21,10 @@
       </con:property>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="Property Transfer" id="434f3e9b-4398-49f6-b630-9c4792e0c4d0">
+  <con:testStep id="434f3e9b-4398-49f6-b630-9c4792e0c4d0" name="Property Transfer" type="transfer">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+      <con:transfers entitize="false" failOnError="true" ignoreEmpty="false" setNullOnMissingSource="true" transferChildNodes="false" transferTextContent="true" transferToAll="false">
         <con:name>quantity</con:name>
         <con:sourceType>quantity</con:sourceType>
         <con:sourceStep>DataGen</con:sourceStep>
@@ -36,7 +36,7 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="jdbc" name="putData" id="263d8de9-ded4-44cc-8521-6d6c95325e09">
+  <con:testStep id="263d8de9-ded4-44cc-8521-6d6c95325e09" name="putData" type="jdbc">
     <con:settings>
       <con:setting id="prettyPrintResponse">true</con:setting>
     </con:settings>
@@ -48,7 +48,7 @@
       <con:connectionProperties/>
       <con:query>INSERT INTO Items (name, quantity)
 VALUES ('Banana', :recordQuantity)</con:query>
-      <con:assertion type="JDBC Status" id="722a3d0a-a7e2-456a-b261-2ff0db87bf27" name="JDBC Status"/>
+      <con:assertion id="722a3d0a-a7e2-456a-b261-2ff0db87bf27" name="JDBC Status" type="JDBC Status"/>
       <con:properties>
         <con:property>
           <con:name>recordQuantity</con:name>
@@ -57,7 +57,7 @@ VALUES ('Banana', :recordQuantity)</con:query>
       </con:properties>
     </con:config>
   </con:testStep>
-  <con:testStep type="jdbc" name="getData" id="4faab457-bb20-485a-85d1-0c60ad026834">
+  <con:testStep id="4faab457-bb20-485a-85d1-0c60ad026834" name="getData" type="jdbc">
     <con:settings>
       <con:setting id="prettyPrintResponse">true</con:setting>
     </con:settings>
@@ -69,7 +69,7 @@ VALUES ('Banana', :recordQuantity)</con:query>
       <con:connectionProperties/>
       <con:query>SELECT TOP 1 * FROM Items 
 ORDER BY Items.id DESC</con:query>
-      <con:assertion type="DataAndMetadataAssertion" id="0a6da89a-143a-4e2d-88aa-699cb4a3bb9d" name="Smart Assertion">
+      <con:assertion id="0a6da89a-143a-4e2d-88aa-699cb4a3bb9d" name="Smart Assertion" type="DataAndMetadataAssertion">
         <con:configuration xsi:type="con:DataAndMetadataAssertion">
           <con:mode>Received Data</con:mode>
           <con:elements>
@@ -128,7 +128,7 @@ ORDER BY Items.id DESC</con:query>
 </Results>]]></con:originalMessage>
         </con:configuration>
       </con:assertion>
-      <con:assertion type="JDBC Status" id="cf38dbc3-1a4e-45ed-aa71-a44a3d95a122" name="JDBC Status"/>
+      <con:assertion id="cf38dbc3-1a4e-45ed-aa71-a44a3d95a122" name="JDBC Status" type="JDBC Status"/>
       <con:properties/>
     </con:config>
   </con:testStep>

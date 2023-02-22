@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="57151833-f739-4a0f-88f7-d4d11c90c444" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_MQ_JNDI" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="57151833-f739-4a0f-88f7-d4d11c90c444" keepSession="false" name="tc_MQ_JNDI" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="57151833-f739-4a0f-88f7-d4d11c90c444fileName">tc_MQ_JNDI</con:setting>
   </con:settings>
-  <con:testStep type="datagen" name="DataGen" id="ceb2434a-0d3a-4581-ac07-ef29c00e3af8">
+  <con:testStep id="ceb2434a-0d3a-4581-ac07-ef29c00e3af8" name="DataGen" type="datagen">
     <con:settings/>
     <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
   </con:testStep>
-  <con:testStep type="transfer" name="Property Transfer" id="4cf3254a-6869-43a1-8d68-dc330290ef21">
+  <con:testStep id="4cf3254a-6869-43a1-8d68-dc330290ef21" name="Property Transfer" type="transfer">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
   </con:testStep>

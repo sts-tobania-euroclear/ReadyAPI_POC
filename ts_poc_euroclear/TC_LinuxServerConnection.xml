@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="75f9f252-cc38-4de5-be82-c18d7990f35c" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TC_LinuxServerConnection" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="75f9f252-cc38-4de5-be82-c18d7990f35c" keepSession="false" name="TC_LinuxServerConnection" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="75f9f252-cc38-4de5-be82-c18d7990f35cfileName">TC_LinuxServerConnection</con:setting>
   </con:settings>

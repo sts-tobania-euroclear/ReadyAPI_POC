@@ -3,7 +3,7 @@
   <con:settings>
     <con:setting id="f1f0383d-8e9c-47f9-86dc-d068f84a8ccffileName">mq_endpoint</con:setting>
   </con:settings>
-  <con:definitionCache type="TEXT" rootPart="mq_endpoint.json">
+  <con:definitionCache rootPart="mq_endpoint.json" type="TEXT">
     <con:part>
       <con:url>mq_endpoint.json</con:url>
       <con:content>{"openapi":"3.0.1","info":{"title":"mq_endpoint","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>

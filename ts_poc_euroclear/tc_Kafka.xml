@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="0d7390bb-ae95-4003-8eff-198470d443f2" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_Kafka" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="0d7390bb-ae95-4003-8eff-198470d443f2" keepSession="false" name="tc_Kafka" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="0d7390bb-ae95-4003-8eff-198470d443f2fileName">tc_Kafka</con:setting>
   </con:settings>
-  <con:testStep type="datagen" name="DataGen" id="f81c50ed-70c5-408c-88f1-2a49cf0e15b0">
+  <con:testStep id="f81c50ed-70c5-408c-88f1-2a49cf0e15b0" name="DataGen" type="datagen">
     <con:settings/>
     <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:property type="Number">
@@ -21,10 +21,10 @@
       </con:property>
     </con:config>
   </con:testStep>
-  <con:testStep type="transfer" name="Property Transfer" id="d78b0093-c24c-40f4-b80c-90727c1411d9">
+  <con:testStep id="d78b0093-c24c-40f4-b80c-90727c1411d9" name="Property Transfer" type="transfer">
     <con:settings/>
     <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+      <con:transfers entitize="false" failOnError="true" ignoreEmpty="false" setNullOnMissingSource="true" transferChildNodes="false" transferTextContent="true" transferToAll="false">
         <con:name>randomNumber</con:name>
         <con:sourceType>number</con:sourceType>
         <con:sourceStep>DataGen</con:sourceStep>
@@ -36,9 +36,9 @@
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="multiConfigureTestStep" name="publish" id="f4152ef0-50e7-4aa6-9da2-339ff5120197">
+  <con:testStep id="f4152ef0-50e7-4aa6-9da2-339ff5120197" name="publish" type="multiConfigureTestStep">
     <con:settings/>
-    <con:config activeStep="kafkaPublishTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config xsi:type="con:MultiConfigurationStep" activeStep="kafkaPublishTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:kafkaPublishStep>
         <con:operationId>15ae1106-1923-4a3b-98d0-5b79ece3eac4</con:operationId>
         <con:operationName>Publish</con:operationName>
@@ -64,9 +64,9 @@
       </con:kafkaPublishStep>
     </con:config>
   </con:testStep>
-  <con:testStep type="multiConfigureTestStep" name="subscribe" id="625dfa4b-b40b-4893-baae-81547a0ff21a">
+  <con:testStep id="625dfa4b-b40b-4893-baae-81547a0ff21a" name="subscribe" type="multiConfigureTestStep">
     <con:settings/>
-    <con:config activeStep="kafkaSubscribeTestStep" xsi:type="con:MultiConfigurationStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:config xsi:type="con:MultiConfigurationStep" activeStep="kafkaSubscribeTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:kafkaSubscribeStep>
         <con:operationId>56a258e3-ddec-4c5c-ae60-b48a2862ec1c</con:operationId>
         <con:operationName>Subscribe</con:operationName>
@@ -80,7 +80,7 @@
         <con:maxIdleTime>10</con:maxIdleTime>
         <con:maxMessagesReceived>1</con:maxMessagesReceived>
         <con:maxRunTime>5</con:maxRunTime>
-        <con:assertion type="DataAndMetadataAssertion" id="6aeaf4b0-b744-4f45-a4ff-d00de5088bc4" name="Smart Assertion">
+        <con:assertion id="6aeaf4b0-b744-4f45-a4ff-d00de5088bc4" name="Smart Assertion" type="DataAndMetadataAssertion">
           <con:configuration xsi:type="con:DataAndMetadataAssertion">
             <con:mode>Received Metadata</con:mode>
             <con:elements>
@@ -98,7 +98,7 @@
               <con:element>Key</con:element>
               <con:operatorId>9</con:operatorId>
               <con:enabled>true</con:enabled>
-              <con:expectedValue xsi:nil="true"/>
+              <con:expectedValue/>
               <con:numberType>false</con:numberType>
               <con:expectedDataType>1</con:expectedDataType>
             </con:elements>

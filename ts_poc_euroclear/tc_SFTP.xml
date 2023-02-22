@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="e9fc89e8-6359-4e61-a20e-4490c68a5096" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_SFTP" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" id="e9fc89e8-6359-4e61-a20e-4490c68a5096" keepSession="false" name="tc_SFTP" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="e9fc89e8-6359-4e61-a20e-4490c68a5096fileName">tc_SFTP</con:setting>
   </con:settings>

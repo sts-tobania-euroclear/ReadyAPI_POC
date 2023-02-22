@@ -3,7 +3,7 @@
   <con:settings>
     <con:setting id="65218174-8070-47a7-ad85-bf499ab006fbfileName">castleMock_local</con:setting>
   </con:settings>
-  <con:definitionCache type="TEXT" rootPart="castleMock_local.json">
+  <con:definitionCache rootPart="castleMock_local.json" type="TEXT">
     <con:part>
       <con:url>castleMock_local.json</con:url>
       <con:content>{"openapi":"3.0.1","info":{"title":"castleMock_local","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/getMethod":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>
