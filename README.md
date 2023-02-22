@@ -25,6 +25,14 @@ In the container bash interface, enter the following commands line by line:
 * SFTP Server
 * Castle Mock for mocking REST and SOAP endpoints.
 
+###
+Jar extensions
+JMS 2.0
+IBM MQ ALLCLIENT
+HELPER Jar (See documentation)
+BSON
+ProviderUtils
+
 ### POC Requirements: 
 * SOAP requests
 * Kafka integration
