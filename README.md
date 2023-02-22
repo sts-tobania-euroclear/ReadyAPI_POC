@@ -25,8 +25,7 @@ In the container bash interface, enter the following commands line by line:
 * SFTP Server
 * Castle Mock for mocking REST and SOAP endpoints.
 
-###
-Jar extensions
+### Jar extensions
 JMS 2.0
 IBM MQ ALLCLIENT
 HELPER Jar (See documentation)
