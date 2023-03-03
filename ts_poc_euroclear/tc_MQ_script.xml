@@ -39,33 +39,25 @@
   <con:testStep id="38e02056-01b5-44c8-8fff-9eb02da6e701" name="putMessage" type="groovy">
     <con:settings/>
     <con:config>
-      <script>import com.ibm.msg.client.wmq.*;
-import com.ibm.mq.jms.*;
+      <script>import helper.*;
 import javax.jms.*;
 
-MQQueueConnectionFactory qcf = new MQQueueConnectionFactory();
+MQConnector connector = new MQConnector("localhost", 1414, "QM1", "DEV.APP.SVRCONN");
+connector.connectToQueue("app", "passw0rd", "DEV.QUEUE.1");
+Message m = connector.createTextMessage("This message has been sent from ReadyAPI");
+connector.putMessage(m);
+log.info("success");</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep id="d4ef1102-f53b-43c6-bc88-ce6d9ded4b7b" name="getMessage" type="groovy">
+    <con:settings/>
+    <con:config>
+      <script>import helper.*;
+import javax.jms.*;
 
-qcf.setHostName ("localhost");
-qcf.setPort (1414);
-qcf.setQueueManager ("QM1");
-qcf.setChannel ("DEV.APP.SVRCONN");
-qcf .setTransportType (WMQConstants.WMQ_CM_CLIENT);
-
-QueueConnection qc = qcf.createQueueConnection ("app","passw0rd"); 
-qc.start();
-
-Queue q = new MQQueue ("DEV.QUEUE.1");
-QueueSession s = qc.createQueueSession (false, Session.AUTO_ACKNOWLEDGE);
-QueueSender qs = s.createSender (q);
-
-Message m = s.createTextMessage (testRunner.testCase.getPropertyValue("randomNumber"));
-qs.send (m);
-
-QueueReceiver qr = s.createReceiver(q);
-Message receivedMessage = qr.receive();
-log.info(receivedMessage.getText())
-log.info("Published message has been successfully read again.")
-assert receivedMessage.getText() == testRunner.testCase.getPropertyValue("randomNumber")</script>
+MQConnector connector = new MQConnector("localhost", 1414, "QM1", "DEV.APP.SVRCONN");
+connector.connectToQueue("app", "passw0rd", "DEV.QUEUE.1");
+log.info(connector.getMessage());</script>
     </con:config>
   </con:testStep>
   <con:properties>

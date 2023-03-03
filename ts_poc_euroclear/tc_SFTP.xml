@@ -3,6 +3,12 @@
   <con:settings>
     <con:setting id="e9fc89e8-6359-4e61-a20e-4490c68a5096fileName">tc_SFTP</con:setting>
   </con:settings>
+  <con:testStep type="ftp" name="FTP" id="3ac59477-8ec2-4aae-83fc-1cf5a12d41be">
+    <con:settings/>
+    <con:config xsi:type="con:FTPTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transaction/>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>

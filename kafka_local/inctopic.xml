@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:channel id="0eccd91a-d7d0-4b68-b9a3-cf9654635b91" name="inctopic" xmlns:con="http://eviware.com/soapui/config">
+<con:channel id="0eccd91a-d7d0-4b68-b9a3-cf9654635b91" name="inctopic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="0eccd91a-d7d0-4b68-b9a3-cf9654635b91fileName">inctopic</con:setting>
   </con:settings>

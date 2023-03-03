@@ -9,11 +9,10 @@
       <script>import helper.MongoDBConnector
 import org.bson.Document;
 
-
 MongoDBConnector connector = new MongoDBConnector();
 connector.connectToDatabase("mongodb://root:example@localhost:27017/", "databasePOC");
 
-
+//Iterate through all documents in the collection.
 for(Document doc : connector.getDocumentFromCollection("collectionPOC")) {
     log.info(doc);
 }</script>
