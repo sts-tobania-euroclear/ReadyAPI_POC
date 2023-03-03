@@ -19,6 +19,8 @@ In the container bash interface, enter the following commands line by line:
 
 
 #### Containers used:
+* MongoDB
+* MongoDB Express
 * MSSQL 2022
 * IBM MQ 9.3
 * Kafka server (and ZooKeeper)
@@ -26,11 +28,11 @@ In the container bash interface, enter the following commands line by line:
 * Castle Mock for mocking REST and SOAP endpoints.
 
 ### Jar extensions
-JMS 2.0
-IBM MQ ALLCLIENT
-HELPER Jar (See documentation)
-BSON
-ProviderUtils
+* JMS 2.0
+* IBM MQ ALLCLIENT
+* HELPER Jar
+* BSON
+* ProviderUtils
 
 ### POC Requirements: 
 * SOAP requests

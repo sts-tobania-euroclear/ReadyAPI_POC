@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource id="beb134eb-d99d-407e-b598-bbf5a05e172a" name="" path="getMethod" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:resource id="beb134eb-d99d-407e-b598-bbf5a05e172a" name="" path="getMethod" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="beb134eb-d99d-407e-b598-bbf5a05e172afileName">getMethod</con:setting>
   </con:settings>
