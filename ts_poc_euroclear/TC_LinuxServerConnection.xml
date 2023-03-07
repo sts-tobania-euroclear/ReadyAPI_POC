@@ -3,6 +3,90 @@
   <con:settings>
     <con:setting id="75f9f252-cc38-4de5-be82-c18d7990f35cfileName">TC_LinuxServerConnection</con:setting>
   </con:settings>
+  <con:testStep type="properties" name="PropertiesRemote" id="66552b47-8abc-47f0-9614-3bbccf01c5a7">
+    <con:settings/>
+    <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:properties>
+        <con:property>
+          <con:name>remoteLogHostPrefix</con:name>
+          <con:value>20.164.43.96</con:value>
+        </con:property>
+        <con:property>
+          <con:name>remoteLogHostIndex</con:name>
+          <con:value/>
+        </con:property>
+        <con:property>
+          <con:name>remoteUser</con:name>
+          <con:value>gsi</con:value>
+        </con:property>
+        <con:property>
+          <con:name>remotePassword</con:name>
+          <con:value>Tobania2023!</con:value>
+        </con:property>
+        <con:property>
+          <con:name>remotePath</con:name>
+          <con:value>/var/log/</con:value>
+        </con:property>
+        <con:property>
+          <con:name>workFileName</con:name>
+          <con:value>syslog</con:value>
+        </con:property>
+        <con:property>
+          <con:name>tmpDirStr</con:name>
+          <con:value>${projectDir}/UnixLogs/</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="cc74c937-0728-48f4-bda2-1a434dde033e">
+    <con:settings/>
+    <con:config>
+      <script>import soapui.utils.CopyLogFile
+import java.text.SimpleDateFormat
+import java.nio.file.Files
+
+def c = new CopyLogFile()
+
+def remoteLogHostIndex = context.expand( '${PropertiesRemote#remoteLogHostIndex}' )
+def remoteLogHostPrefix = context.expand( '${PropertiesRemote#remoteLogHostPrefix}' )
+def remoteHost = remoteLogHostPrefix + remoteLogHostIndex
+def remoteUser = context.expand( '${PropertiesRemote#remoteUser}' )
+def remotePassword = context.expand( '${PropertiesRemote#remotePassword}' )
+def remotePath = context.expand( '${PropertiesRemote#remotePath}' )
+def workFileName = context.expand( '${PropertiesRemote#workFileName}' )
+def tmpDirStr = context.expand( '${PropertiesRemote#tmpDirStr}' )
+
+File localDir = new File(tmpDirStr)
+
+if (!(localDir.exists() &amp;&amp; localDir.isDirectory()))
+{  localDir = new File(tmpDirStr)
+   localDir.mkdir()
+   log.info "The directory has been created: $tmpDirStr"
+}
+
+def remotePathFileName = remotePath + workFileName  //
+log.info "remotePathFileName: " + remotePathFileName
+
+def localPathFileName = tmpDirStr + workFileName  //
+log.info "localPathFileName: " + localPathFileName
+
+dateTimeFileStamp = new SimpleDateFormat ( "_yyyyMMdd_HHmmss" )
+dtStr = dateTimeFileStamp.format(new Date())
+
+
+c.Connect (remoteHost, remoteUser, remotePassword)
+if (c.IsConnected()) {
+   	log.info 'Connection successful to: ' + remoteHost
+   	localPathFileName =  localPathFileName + dtStr +'.txt'
+	c.GetFile(remotePathFileName, localPathFileName )
+	log.info "The file has been copied. The filename is : $localPathFileName "
+     c.Disconnect()
+   }
+else {
+      log.info 'Connection failed to: ' + remoteHost
+   }</script>
+    </con:config>
+  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
 </con:testCase>
