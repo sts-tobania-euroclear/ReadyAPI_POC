@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:operation action="sayHello" anonymous="optional" bindingOperationName="sayHello" id="4c76fea4-74c8-4964-bdfb-b4c7b712dedf" inputName="" isOneWay="false" name="sayHello" receivesAttachments="false" sendsAttachments="false" type="Request-Response" xmlns:con="http://eviware.com/soapui/config">
+<con:operation action="sayHello" anonymous="optional" bindingOperationName="sayHello" id="4c76fea4-74c8-4964-bdfb-b4c7b712dedf" inputName="" isOneWay="false" name="sayHello" receivesAttachments="false" sendsAttachments="false" type="Request-Response" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="4c76fea4-74c8-4964-bdfb-b4c7b712dedffileName">sayHello</con:setting>
   </con:settings>

@@ -6,6 +6,9 @@
   <con:testStep id="3ac59477-8ec2-4aae-83fc-1cf5a12d41be" name="FTP" type="ftp">
     <con:settings/>
     <con:config xsi:type="con:FTPTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:host>l</con:host>
+      <con:port>22</con:port>
+      <con:user>root</con:user>
       <con:transaction/>
     </con:config>
   </con:testStep>

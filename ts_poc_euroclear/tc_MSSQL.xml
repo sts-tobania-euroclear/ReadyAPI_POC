@@ -132,10 +132,20 @@ ORDER BY Items.id DESC</con:query>
       <con:properties/>
     </con:config>
   </con:testStep>
+  <con:testStep type="jdbc" name="JDBC Request" id="d1196467-d5b8-4895-8766-00dc0f4acf53">
+    <con:settings>
+      <con:setting id="prettyPrintResponse">true</con:setting>
+    </con:settings>
+    <con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dbConnectionName xsi:nil="true"/>
+      <con:connectionProperties/>
+      <con:properties/>
+    </con:config>
+  </con:testStep>
   <con:properties>
     <con:property>
       <con:name>quantity</con:name>
-      <con:value>3821282</con:value>
+      <con:value>75184784</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>

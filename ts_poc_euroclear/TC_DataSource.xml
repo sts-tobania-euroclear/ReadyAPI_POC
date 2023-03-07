@@ -3,6 +3,29 @@
   <con:settings>
     <con:setting id="8a540deb-c193-4674-bb43-07b9d98ca6bafileName">TC_DataSource</con:setting>
   </con:settings>
-  <con:properties/>
+  <con:testStep type="datasource" name="Data Source" id="7d2b46dc-6c34-4c8d-bbd7-dee92502c635">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Directory">
+        <con:configuration>
+          <directory>C:/Program Files/SmartBear/ReadyAPI-3.43.1/bin/${#TestCase#directory}</directory>
+          <filter/>
+          <encoding/>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>names</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>directory</con:name>
+      <con:value/>
+    </con:property>
+  </con:properties>
   <con:reportParameters/>
 </con:testCase>

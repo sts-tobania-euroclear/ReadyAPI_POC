@@ -44,7 +44,7 @@ import javax.jms.*;
 
 MQConnector connector = new MQConnector("localhost", 1414, "QM1", "DEV.APP.SVRCONN");
 connector.connectToQueue("app", "passw0rd", "DEV.QUEUE.1");
-Message m = connector.createTextMessage("This message has been sent from ReadyAPI");
+Message m = connector.createTextMessage(testRunner.testCase.getPropertyValue("randomNumber"));
 connector.putMessage(m);
 log.info("success");</script>
     </con:config>
@@ -57,13 +57,20 @@ import javax.jms.*;
 
 MQConnector connector = new MQConnector("localhost", 1414, "QM1", "DEV.APP.SVRCONN");
 connector.connectToQueue("app", "passw0rd", "DEV.QUEUE.1");
-log.info(connector.getMessage());</script>
+String messageText = connector.getMessage().getText();
+assert messageText ==  testRunner.testCase.getPropertyValue("randomNumber")
+
+log.info(messageText);</script>
     </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="Assertion" id="4cec998e-74cd-43a9-8724-afaa069084eb">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
   </con:testStep>
   <con:properties>
     <con:property>
       <con:name>randomNumber</con:name>
-      <con:value>127707336618979174017629911086897561600</con:value>
+      <con:value>210118258008029547921657232238460272640</con:value>
     </con:property>
   </con:properties>
   <con:reportParameters/>
