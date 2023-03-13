@@ -1,6 +1,6 @@
 kafka_local\inctopic.xml
 mq_endpoint\.xml
-castleMock_local\getMethod.xml
+castleMock_local\rest.xml
 Hello_Binding\sayHello.xml
 ts_poc_euroclear\tc_Kafka.xml
 ts_poc_euroclear\tc_MSSQL.xml
@@ -11,3 +11,4 @@ ts_poc_euroclear\TC_DataSource.xml
 ts_poc_euroclear\tc_MQ_script.xml
 ts_poc_euroclear\tc_SOAP.xml
 ts_poc_euroclear\tc_MongoDB.xml
+ts_poc_euroclear\tc_REST.xml

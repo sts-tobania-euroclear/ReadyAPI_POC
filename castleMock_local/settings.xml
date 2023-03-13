@@ -6,11 +6,11 @@
   <con:definitionCache rootPart="castleMock_local.json" type="TEXT">
     <con:part>
       <con:url>castleMock_local.json</con:url>
-      <con:content>{"openapi":"3.0.1","info":{"title":"castleMock_local","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/getMethod":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>
+      <con:content>{"openapi":"3.0.1","info":{"title":"castleMock_local","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/rest":{"description":"","get":{"description":"","responses":{"default":{"description":"Default response"}}},"post":{"description":"","requestBody":{"content":{"application/json":{}}},"responses":{"default":{"description":"Default response"}}}}}}</con:content>
       <con:type>https://swagger.io/openapiv3/specification</con:type>
     </con:part>
   </con:definitionCache>
   <con:endpoints>
-    <con:endpoint>localhost:8080</con:endpoint>
+    <con:endpoint>http://localhost:8080/castlemock/mock/rest/project/2yHuDa/application/uGEXWF</con:endpoint>
   </con:endpoints>
 </con:interface>

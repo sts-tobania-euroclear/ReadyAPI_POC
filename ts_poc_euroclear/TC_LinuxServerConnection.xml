@@ -58,7 +58,7 @@ def tmpDirStr = context.expand( '${PropertiesRemote#tmpDirStr}' )
 
 File localDir = new File(tmpDirStr)
 
-if (!(localDir.exists() &amp;&amp; localDir.isDirectory()))
+if (!(localDir.exists() localDir.isDirectory()))
 {  localDir = new File(tmpDirStr)
    localDir.mkdir()
    log.info "The directory has been created: $tmpDirStr"

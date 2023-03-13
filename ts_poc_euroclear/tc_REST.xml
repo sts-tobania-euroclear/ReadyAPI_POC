@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4e5640d8-cdcb-4a46-8af2-2455c2eba818" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="tc_REST" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4e5640d8-cdcb-4a46-8af2-2455c2eba818fileName">tc_REST</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="91520afd-d9d0-49fe-8ead-933fc7e236b8">
+    <con:settings/>
+    <con:config service="castleMock_local" resourcePath="/rest" methodName="Method 2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest id="91b5342b-1a8a-4de0-bded-7b5f77545601" mediaType="application/json" name="REST Request">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8080/castlemock/mock/rest/project/2yHuDa/application/uGEXWF</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://localhost/castlemock/mock/rest/project/2yHuDa/application/uGEXWF/rest</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="5349f662-9599-433e-9521-506a67b9bb5f" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="3ab5dd34-32c6-4991-b522-d7012b553864" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
